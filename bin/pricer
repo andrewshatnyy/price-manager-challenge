@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+bin = File.dirname(File.expand_path(__FILE__))
+folder = File.join(bin, '../lib')
+$LOAD_PATH.unshift(folder) unless $LOAD_PATH.include?(folder)
+
+begin
+  require 'pricer'
+rescue
+  require 'rubygems'
+  require 'pricer'
+end
+
+Pricer::CLI.run
